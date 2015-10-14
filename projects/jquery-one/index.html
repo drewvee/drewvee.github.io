@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>jQuery One</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+  <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <h1>jQuery One</h1>
+    <section>
+      <ul>
+        <li>You will code in this index.html file, save and refresh to see the results of your work.</li>
+        <li><a href="directions.html" target="_blank">Directions...</a></li>
+      </ul>
+    </section>
+    <div id="everything">
+        <h1>A heading!</h1>
+        <p>Here's some text!</p>
+        <p>Here's a second set of text!</p>
+        <div class="holder">
+            <ul>
+                <li>List Item 1</li>
+                <li id= "listItem2">List Item 2</li>
+                <li>List Item 3</li>
+            </ul>
+        </div>
+        <div class="holder">
+            <ul>
+                <li>List Item 4</li>
+                <li>List Item 5</li>
+                <li>List Item 6</li>
+            </ul>
+        </div>
+    <div id="ass1">
+        <h1> </h1>
+        <p id="target"> </p>
+        <p> </p>
+        <div class="holder"> </div>
+            <ul>
+              
+            </ul>
+        <div class="holder"> </div>
+            <ul>
+              
+            </ul>
+    </div>
+    </div>
+  </div>
+  <script type="text/javascript" src=""https://code.jquery.com/jquery-2.1.1.js""></script>
+  <script> 
+  var allDIVs = $("div");
+  var allULs = $("ul");
+  
+  $("p").css("color", "blue");
+  $(".container").css("background-color", "red");
+  $(".holder").css("border", "1px solid black");
+  $("ul li").css("font-weight", "bold");
+  
+  $("div.container").prepend("<div>hello</div>");
+  $(".container").append("<div>goodbye</div>");
+  
+  
+  $("body").prepend("<div>Body prepend</div>");
+  $("body").apend("<div>Body prepend</div>");
+  
+  // $("div.holder:nth-child(2)").insertAfter('<div id="last'>Some Test</div>);
+  // window.colors=["red","yellow","blue","green"]
+  // setInterval)
+  //   function(){
+  //       if(!this.counter){
+  //         this.counter=0}
+  //       }
+  //   }
+  //   console.log(this.counter);
+  //   $("body").css("background-color",window.colors[this.counter%4]);
+  //   this.counter++;
+  //   }
+  // }, 500);
+  
+  $("div#first").insertBefore("first.div.holder");
+  $("div#last").insertAfter("second.div.holder");
+  
+  // var newDetachedDiv = $("<div>Some text blahblahblah</div>");
+  
+  // $("div").remove(); //What's this?
+  // $("#container").empty(); // How diff?
+  
+  // $("#container").append(orphanNode);
+  
+  // .find //???
+  // .parent //?
+  // .children //?
+  // var orphanNode = $("#target").detach(); //What?
+  
+  </script>
+</body>
+
+</html>
