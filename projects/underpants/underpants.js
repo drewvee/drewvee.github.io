@@ -28,6 +28,8 @@
   _.identity = function(bonkers_the_cat){
     return bonkers_the_cat;
   };
+  
+  
 
   /** _.first()
    * Arguments:
@@ -44,14 +46,14 @@
    *   _.first(["a","b","c"], 2) -> ["a", "b"]
    *   _.first(["a", "b", "c"], "ponies") -> ["a","b","c"]
    */
-_.first = function(arr, len){
-    if (len === 0 || len < 0 || !Array.isArray(arr)) {
+_.first = function(arr, num){
+    if (num === 0 || num < 0 || !Array.isArray(arr)) {
         return [];
     }
-    if(!len || len === undefined ){
+    if(!num || num === undefined ){
       return arr[0];
     }
-    return arr.slice(0,len);
+    return arr.slice(0, num);
 };
 
 _.first2 = function(array, num){
@@ -73,6 +75,7 @@ if (num < array.length) {
 
   }  
 };
+
 
   /** _.last()
    * Arguments:
@@ -138,17 +141,24 @@ if (num < array.length) {
    *   _.each(["a","b","c"], function(e,i,a){ console.log(e0}); 
    *      -> should log "a" "b" "c" to the console
   */
-_.each = function(coll, func){
-  if(Array.isArray(coll)){
-      for(var i = 0; i < coll.length; i++){
-          func(coll[i], i, coll);
+_.each = function(coll, action){
+  if (Array.isArray(coll)) {
+      for (var i = 0; i < coll.length; i++) {
+          action(coll[i], i, coll);
       }
   } else if (typeof coll === "object"){
       for(var key in coll){
-        func(coll[key], key, coll);
+        action(coll[key], key, coll);
       }
   }  
 };
+
+
+// var friends = ["Mike", "Stacy", "Andy", "Rick"];
+
+// friends._each(function (eachName, index){
+// console.log(index + 1 + ". " + eachName); // 1. Mike, 2. Stacy, 3. Andy, 4. Rick.
+// });
 
 // _.each2 = function(coll, func)
 //     if(Array.isArray(coll)){
@@ -200,19 +210,62 @@ _.indexOf = function(arr, val){
    * Examples:
    *   _.filter([1,2,3,4,5], function(x){return x%2 === 0}) -> [2,4]
    */
-_.filter = function(arr, func){
-    var arrNew = [];
-    
-    if(Array.isArray(arr)){
-      for(var i = 0; i < arr.length; i++){
-          func(arr[i], i, arr);
-        if (func(arr[i], i, arr) === true){
-        arrNew.push(arr[i]);
+
+//     if(Array.isArray(arr)){
+//       for(var i = 0; i < arr.length; i++){
+//           func(arr[i], i, arr);
+//            if (func(arr[i], i, arr) === true){
+//         output.push(arr[i]);
+//         }
+//       }
+//     return output;
+//     }  
+// };
+
+_.filter2 = function(coll, test) {
+    var passed = [];
+    if (Array.isArray(coll)) {
+      for (var i = 0; i < coll.length; i++) {
+        if (test(coll[i], i, coll)) {
+          passed.push(coll[i]);
         }
-      }
-    return arrNew;
-    }  
-    };
+      }  
+    } else { 
+        for (var key in coll) {
+          if (test(coll[key], key, coll)) {
+            passed.push(coll[key]);
+          }
+        }
+    }
+    return passed;
+};  
+
+_.filter3 = function(coll, test) {
+    var passed = [];
+    _.each(coll, function(value) {
+        if (test(value)) {
+          passed.push(value);
+        }
+    });
+    return passed;
+};
+
+_.filter = function(coll, test) {
+    return _.reduce(coll, function(memo, element){
+      if (test(element)) memo.push(element);
+        return memo;
+    }, []);
+};
+
+
+_.filter4 = function(coll, test){
+  var output = [];
+  _.each(coll, function(value) {
+    if (test(value)) output.push(value);
+  });
+  return output;
+};
+
   /** _.reject()
    * Arguments:
    *   1) An array
@@ -273,18 +326,35 @@ _.uniq = function(arr){
    * Examples:
    *   _.map([1,2,3,4], function(e){return e * 2}) -> [2,4,6,8]
    */
-_.map = function(arr, func){
-    var newArr = [];
+_.map2 = function(arr, transform) {
+    var output = [];
     if (Array.isArray(arr) && typeof func === "function"){
         for (var i = 0; i < arr.length; i++) {
-            func(arr[i]);
-            newArr.push(func(arr[i]));
+            transform(arr[i]);
+            output.push(transform(arr[i]));
           }
         }
-        return newArr;
+        return output;
     };
 
+_.map3 = function(coll, transform) {
+    var output = [];
+    _.each(coll, function(value) {
+      output.push(transform(value));
+    });
+    return output;
+};
 
+_.map = function(coll, transform) {
+    return _.reduce(coll, function(memo, element) {
+        memo.push(transform(element));
+          return memo;
+    }, [])
+};
+    
+    
+    
+    
   /** _.pluck()
    * Arguments:
    *   1) An array of objects
@@ -325,17 +395,22 @@ _.pluck = function(arr, prop){
    * Examples:
    *   _.reduce([1,2,3], function(prev, curr){ return prev + curr}) -> 6
    */
-_.reduce = function(coll, func, seed){
+_.reduce = function(coll, iterator, seed){
       var i = 0;  
       if(seed === undefined){
         seed = coll[0];
         i = 1;
       }
-        var returnVal = seed
-        for(i; i < coll.length; i++){
-        returnVal = func(returnVal, coll[i], i);
-      }
-      return returnVal;
+        var memo = seed;
+        for(i; i < coll.length; i++) {
+          memo = iterator(memo, coll[i], i);
+      } {
+        (typeof coll === "object") 
+          for(var key in coll) {
+            memo = iterator(memo, key, coll[key]);
+          }
+        }
+      return memo;
 };
 
   /** _.contains()
@@ -364,6 +439,13 @@ _.contains = function(arr, val){
     return false;
 };
 
+// _.contains2 = function (coll, value) {
+//   return _.reduce(coll, function(memo, element) {
+//       return memo = memo !! ;
+//   }, false);
+// };
+
+
   /** _.every()
    * Arguments:
    *   1) A collection
@@ -382,7 +464,7 @@ _.contains = function(arr, val){
    *   _.every([2,4,6], function(e){return e % 2 === 0}) -> true
    *   _.every([1,2,3], function(e){return e % 2 === 0}) -> false
    */
-_.every = function(coll, func){
+_.every3 = function(coll, func) {
   if(func === undefined){
     func = _.identity;
   }
@@ -392,9 +474,34 @@ _.every = function(coll, func){
         return false;
       } 
     }
-    return true;
+    return true; 
   }
 };
+
+
+// _.every = function(coll, test) {
+  
+//   var result = false;
+//   _.each(coll, function(value) {
+//       if(test === undefined){
+//       test = _.identity;
+//       }
+//       if(!test(value)) {
+//       return result;
+//       }
+//   });
+//   return true;
+// };
+
+
+_.every = function(coll, test) {
+  return _.reduce(coll, function(memo, elem){
+    return memo = (memo && (test(elem) == true));
+  }, true);
+};
+
+
+
   /** _.some()
    * Arguments:
    *   1) A collection

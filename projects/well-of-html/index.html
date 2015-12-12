@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="css/custom.css" type="text/css" />
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="bower_components/notes/notes.js"></script>
+    <title>A Well of HTML</title>
+    <style type="text/css">
+        
+    </style>
+</head>
+
+<body>
+    <div id="container" class="container">
+        <!-- ALL YOUR MARKUP GOES BELOW HERE -->
+        <a href="https://en.wikipedia.org/wiki/Alan_Turing"></a>
+        <img src="img/black-currant.jpg" />
+        <h1>The big title <small>And the small BIG title</small></h1>
+        <h2>Slightly smaller</h2>
+        <h3>And so on</h3>
+        <h4>And so so one</h4>
+        <h5>Close to the end</h5>
+        <h6>The End</h6>
+        
+        <p><b>So this is where the work goes(bold)</b></p>
+        <p><i>And continues to have written words and such.(italics)</i></p>
+        <p><em>See how pretty it looks!!!!(emphasis)</em></p>
+        <p><strong>What the what?(strong)</strong></p>
+        
+            <ul>
+                <li>Toronto</li>
+                <li>New York</li>
+                <li>Chicago</li>
+                <li>Vancouver</li>
+            </ul>
+            
+            
+            
+            <ol>
+                <li>Motorcycle</li>
+                <li>Car</li>
+                <li>Boat</li>
+                <li>Airplane</li>
+                <li>Helicopter</li>
+            </ol>
+        
+            <dl>
+                  <li>Definition Lists</li>
+                  <dt>Canada (definition title)</dt>
+                  <dd>A very cold country (definition description)</dd>
+                  <dt>Brazil</dt>
+                  <dd>A very warm country</dd>
+            </dl>
+        
+    <form class = "example-form">
+        <div>
+            <label for="sci-fi genre">Sci-fi Genre:</label>
+            <input type="text" id="sci-fi genre" />
+        </div>
+        <div>
+            <label for="favorite movie">Favorite Movie:</label>
+            <input type="text" id="favorite movie" />
+        </div>
+        <div>
+            <label for="favorite alien">Favorite Alien:</label>
+            <input type="text" id="favority alien" />
+        </div>
+        <div>
+            <label for="msg">Message:</label>
+            <textarea id="msg"></textarea>
+        </div>
+        
+        <div class="button">
+            <button type="submit">Send it now!</button>
+        </div>
+    </form>
+    
+    <table>
+        <thead>
+            <tr>
+                <th colspan = "2">Pro Skateboarders I Remember : </td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <th>Board Company</th>
+            </tr>
+        </thead>
+        
+        <tfoot>
+            <tr>
+                <td colspan = "2">This is the only shit I can remember</td>
+            </tr>
+        </tfoot>
+        
+        <tbody>
+            <tr>
+                <td>Tony Hawk</td>
+                <td>Powell Peralta</td>
+            </tr>
+            <tr>
+                <td>Salman Agar</td>
+                <td>Blind Skateboards</td>
+            </tr>
+            <tr>
+                <td>Danny Way</td>
+                <td>Plan B</td>
+            </tr>
+            <tr>
+                <td>Colin MacKay</td>
+                <td>Alien Workshop</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <div class="flex-row">
+    <div>What is this?</div>
+    <div>I don't know yet.</div>
+    <div>Let's see what it looks like,</div>
+    <div>then we can decide what it does.</div>
+    <div>Cool beans.</div>
+    </div>
+    
+    <div class = "example-grid">
+        <div class = "row">
+            <div class = "col md 2"><img src="/img/cherries.jpg" class=
+            "row=img"></img></div>
+            <div class = "col md 10">Sweet sweet cherry pie.</div>
+        </div>
+        <div class="row">
+            <div class="col md 2"><img src="/img/black-currant" class="row-img"></img></div> <!-- aren't img src tags selfclosing?-->
+            <div class="col md 10">As my friend Wesley Snipes says "Always bet on black!"</div>`
+        </div>
+        <div class="row">
+            <div class="col md 2"><img src="/img/apple-in-grass.jpg" class="row=img"></img></div>
+            <div class="col md 10">Who the eff left my apple in the grass???</div>
+        </div>
+    </div>    
+        
+        
+        
+        <!-- ALL YOUR MARKUP GOES ABOVE HERE -->
+    </div>
+    <script>
+        $(function () {
+            window.opspark.notes.show();
+        });
+    </script>
+</body>
+
+</html>

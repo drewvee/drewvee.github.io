@@ -1,0 +1,99 @@
+body {
+    letter-spacing: 1px;
+    font-family: 'Century Gothic', sans-serif;
+}
+
+header,
+main {
+    margin: 20px;
+    letter-spacing: 1px;
+    font-family: 'Century Gothic', sans-serif;
+}
+
+header {
+    padding: 30px;
+    border-bottom: 1px solid #665544;
+}
+
+h1 {
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-family: 'Century Gothic', sans-serif;
+}
+
+main {
+    display: flex !important;
+    flex-direction: row;
+}
+
+.filter-products-column {
+    width: 300px;
+}
+
+.products-column {
+    flex-grow: 1;
+    margin-left: 50px;
+}
+
+.products {
+    padding: 3px;
+}
+
+.products > li {
+    list-style: none;
+}
+
+.item {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+.image {
+    width: 50%;
+    float: left;
+    padding: 20px 1%;
+    min-width: 300px;
+}
+
+.glyphicon glyphicon-camera {
+    width: 10%;
+}
+
+.product-name {
+    font-size: 20px;
+    padding: 30px;
+}
+
+.price {
+    color: #138808;
+    font-size: 30px;
+    padding: 20px;
+}
+
+.specs {
+    color: #707070;
+    padding: 20px;
+}
+
+.avail-colors {
+    font-size: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+}
+
+.avail-colors > li {
+    margin: 0px 5px;
+    background-color: rgba(0, 0, 255, .2);
+    border-radius: 3px;
+    padding: 2px 5px;
+}
+
+.stock {
+    color: #138808;
+    font-size: 10px;
+    padding: 10px;
+}

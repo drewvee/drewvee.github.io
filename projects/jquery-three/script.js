@@ -118,7 +118,8 @@ var each = function(coll, func){
         func(coll[key], key, coll);
       }
   }  
-  
+};
+
  function createTable(data) {
      
         var $tbl = $('<table/>');
@@ -131,20 +132,19 @@ var each = function(coll, func){
          .appendTo($tr);
      });
      
-     each(data, function(key){
-         $('<tr/>').appendTo($tbl);
-         
-     });
+     each(data, function(object){
+        $tr= $('<tr/>').appendTo($tbl);
      
-     each(data, function(value, key){
-         $('<td/>');
-         .html(value || "No data available")
-         .appendTo($tr);        
-     });
+         each(object, function(value, key){
+             $('<td/>')
+             .html(value || 'No data available')
+             .appendTo($tr);        
+         });    
     });
     return $tbl;
-    }
-    $('body').append(createTable(contacts));
+ }
+ $('body').append(createTable(allGuardians));
+ 
 
-}
+
 });

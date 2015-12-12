@@ -1,19 +1,58 @@
 
-
-function objectValues(object){
-    var keys = Object.keys(object)
-    var vals = [];
-    for(var i = 0; i < keys.length; i++){
-      vals.push(object[keys[i]]);
-    }
-    return vals;
+function objectValues(obj) {
+  var values = Object.keys(obj);
+  var valArr = [];
+  for (var i = 0; i < values.length; i++) {
+      valArr.push(obj[values[i]]);
+  }
+  return valArr;
 }
 
-function keysToString(object){
-    var keys = Object.keys(object);
-    var keysSpace = keys.join(" ");
-    return keysSpace;
+
+
+function keysToString(obj) {
+    var keys = Object.keys(obj);
+    var keySpace = keys.join(" ");
+    return keySpace;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// function objectValues(object){
+//     var keys = Object.keys(object)
+//     var vals = [];
+//     for(var i = 0; i < keys.length; i++){
+//       vals.push(object[keys[i]]);
+//     }
+//     return vals;
+// }
+
+// function keysToString(object){
+//     var keys = Object.keys(object);
+//     var keysSpace = keys.join(" ");
+//     return keysSpace;
+// }
 
 function valuesToString(object){
     var vals = objectValues(object);
